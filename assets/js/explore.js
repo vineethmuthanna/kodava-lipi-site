@@ -1,27 +1,37 @@
-const tiles = document.querySelectorAll(".glyph-tile");
-const display = document.getElementById("glyph-display");
+document.addEventListener("DOMContentLoaded", () => {
+  const tiles = document.querySelectorAll(".glyph-tile");
 
-let audio = null;
+  if (tiles.length === 0) {
+    console.error("No glyph tiles found. explore.js is loaded, but HTML is not ready or class name is wrong.");
+    return;
+  }
 
-tiles.forEach(tile => {
-  tile.addEventListener("click", () => {
-    const letter = tile.dataset.letter;
+  let audio = null;
 
-    // Remove previous selection
-    tiles.forEach(t => t.classList.remove("selected"));
-    tile.classList.add("selected");
+  tiles.forEach(tile => {
+    tile.addEventListener("click", () => {
+      const letter = tile.dataset.letter;
 
-    // Update display
-    display.innerHTML = `
-      <img src="assets/glyphs/${letter}.svg" alt="${letter}">
-      <p>${letter}</p>
-    `;
+      if (!letter) {
+        console.warn("Clicked tile has no data-letter");
+        return;
+      }
 
-    // Play sound
-    if (audio) {
-      audio.pause();
-    }
-    audio = new Audio(`assets/audio/${letter}.m4a`);
-    audio.play();
+      // Stop previous audio
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      audio = new Audio(`assets/audio/${letter}.m4a`);
+
+      audio.play()
+        .then(() => {
+          console.log(`Playing audio for: ${letter}`);
+        })
+        .catch(err => {
+          console.error(`Failed to play audio for ${letter}`, err);
+        });
+    });
   });
 });
