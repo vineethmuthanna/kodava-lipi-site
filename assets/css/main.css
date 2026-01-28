@@ -241,7 +241,7 @@ main {
 }
 
 .glyph-tile img {
-  width: 42px;
+  /*width: 42px;*/
   height: 42px;
   object-fit: contain;
 }
