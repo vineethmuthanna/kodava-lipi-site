@@ -74,10 +74,12 @@ main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2.5rem 1.25rem;
-  text-align: center; /* ✅ CENTER EVERYTHING */
 }
 
-/* ---------- Hero ---------- */
+/* ===============================
+   HERO (INDEX PAGE)
+   =============================== */
+
 .hero {
   min-height: 70vh;
   display: flex;
@@ -100,7 +102,10 @@ main {
   color: #555;
 }
 
-/* ---------- Content Sections ---------- */
+/* ===============================
+   Content Sections (INDEX)
+   =============================== */
+
 .content {
   max-width: 800px;
   margin: 4rem auto;
@@ -123,7 +128,10 @@ main {
   margin: 0 auto;
 }
 
-/* ---------- Call to Action ---------- */
+/* ===============================
+   Call To Action (INDEX)
+   =============================== */
+
 .cta {
   background: #111;
   color: white;
@@ -146,7 +154,6 @@ main {
   background: white;
   color: #111;
   padding: 0.75rem 1.5rem;
-  text-decoration: none;
   font-weight: 600;
   border-radius: 4px;
 }
@@ -156,11 +163,12 @@ main {
 }
 
 /* ===============================
-   Explore Hero
+   Explore Hero (EXPLORE PAGE)
    =============================== */
 
 .explore-hero {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .explore-hero h1 {
@@ -171,7 +179,7 @@ main {
 .explore-hero p {
   color: #555;
   max-width: 600px;
-  margin: 0 auto; /* ✅ CENTER TEXT BLOCK */
+  margin: 0 auto;
 }
 
 /* ===============================
@@ -179,12 +187,13 @@ main {
    =============================== */
 
 .glyph-section {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .glyph-section h2 {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 /* ===============================
@@ -194,15 +203,15 @@ main {
 .glyph-rows {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center; /* ✅ CENTER ROW GROUP */
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .glyph-row {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
-  justify-content: center; /* ✅ CENTER ROW CONTENT */
+  justify-content: center;
 }
 
 /* ===============================
@@ -232,6 +241,7 @@ main {
 }
 
 .glyph-tile img {
+  width: 42px;
   height: 42px;
   object-fit: contain;
 }
@@ -252,4 +262,40 @@ main {
   text-align: center;
   font-size: 0.85rem;
   color: #666;
+}
+
+/* ===============================
+   Mobile Fixes
+   =============================== */
+
+@media (max-width: 768px) {
+
+  main {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .glyph-row {
+    flex-wrap: wrap;
+  }
+
+  .glyph-tile {
+    width: 80px;
+    height: 100px;
+  }
+
+  .glyph-section h2 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .glyph-tile {
+    width: 72px;
+    height: 96px;
+  }
 }
